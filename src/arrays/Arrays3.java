@@ -92,6 +92,36 @@ public class Arrays3 {
         System.out.println(Arrays.toString(arr));
     }
 
+    public static void mergeTwoSortedArrays() {
+        int arr1[] = {1,4,5,8,9,10,15};
+        int arr2[] = {2,11,19,31};
+
+        int n = arr1.length;
+        int m = arr2.length;
+        int arr[] = new int[n + m];
+
+        int i=0, j=0, k=0;
+
+        while (i < n && j < m) {
+            if (arr1[i] <= arr2[j]) {
+                arr[k++] = arr1[i++];
+            } else {
+                arr[k++] = arr2[j++];
+            }
+        }
+
+        // copy left over elements if any
+        while (i < n) {
+            arr[k++] = arr1[i++];
+        }
+
+        while (j < m) {
+            arr[k++] = arr2[j++];
+        }
+
+        System.out.println(Arrays.toString(arr));
+    }
+
     public static void main(String[] args) {
         System.out.println("####################################");
         System.out.println("Binary Search");
@@ -105,6 +135,9 @@ public class Arrays3 {
         System.out.println("####################################");
         System.out.println("Insertion Sort");
         insertionSort();
+        System.out.println("####################################");
+        System.out.println("Merge two sorted arrays");
+        mergeTwoSortedArrays();
         System.out.println("####################################");
     }
 }
