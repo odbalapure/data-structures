@@ -55,7 +55,7 @@ public class Arrays4 {
     }
 
     public static void addTwoArrays() {
-        int a[] = { 9, 3, 9 };
+        int a[] = { 2, 2, 2 };
         int b[] =    { 6, 1 };
         int n = a.length;
         int m = b.length;
@@ -83,20 +83,20 @@ public class Arrays4 {
             i--;
             j--;
         }
-        System.out.println(carry);
 
         // If second array size is less
         // the first array size.
-        while (i >= 0) {
-            // Add carry to first array elements.
-            s = a[i] + carry;
-            sum[k] = (s % 10);
-            carry = s / 10;
+        if (a.length > b.length) {
+            while (i >= 0) {
+                // Add carry to first array elements.
+                s = a[i] + carry;
+                sum[k] = (s % 10);
+                carry = s / 10;
 
-            i--;
-            k--;
+                i--;
+                k--;
+            }
         }
-        System.out.println(carry);
 
         int ans = 0;
 
@@ -114,6 +114,8 @@ public class Arrays4 {
         System.out.println("Sum: " + ans/10);
     }
 
+    // time complexity: O ( N * K )
+    // space complexity: O ( 1 )
     public static void rotateArrayRight() {
         int arr[] = { 1, 2, 3, 8, 9, 10 };
         int k = 3;
@@ -132,8 +134,6 @@ public class Arrays4 {
         System.out.println(Arrays.toString(arr));
     }
 
-    // time complexity: O ( N * K )
-    // space complexity: O ( 1 )
     public static void rotateArrayLeft() {
         int arr[] = {1, 2, 3, 8, 9, 10};
         int k = 1;
@@ -154,14 +154,13 @@ public class Arrays4 {
 
     public static int countRightRotations(int arr[], int n) {
         int min = Integer.MAX_VALUE, min_index = -1;
-        for (int i = 0; i < n; i++)
-        {
-            if (min > arr[i])
-            {
+        for (int i = 0; i < n; i++) {
+            if (min > arr[i]) {
                 min = arr[i];
                 min_index = i;
             }
         }
+
         return min_index;
     }
 
