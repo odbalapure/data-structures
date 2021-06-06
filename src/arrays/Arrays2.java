@@ -34,7 +34,7 @@ public class Arrays2 {
         int sum = 16;
         int n = arr.length;
 
-        for (int i = 0; i < n - 1; i++) {
+        for (int i = 0; i < n-1; i++) {
             for (int j = i + 1; j < n; j++) {
                 if (arr[i] + arr[j] == sum) {
                     System.out.println(arr[i] + " + " + arr[j] + " = " + sum);

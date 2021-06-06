@@ -6,7 +6,7 @@ import java.util.Stack;
 public class String2 {
 
     public static void checkPermutation() {
-        String str1= "sinrtg";
+        String str1 = "sinrtg";
         String str2 = "string";
 
         char chArr1[] = str1.toCharArray();
@@ -41,8 +41,7 @@ public class String2 {
             if (i > 0 && stack[i - 1] == currentChar) {
                 i--;
             } else {
-                stack[i] = currentChar;
-                i += 1;
+                stack[i++] = currentChar;
             }
         }
 
@@ -100,10 +99,15 @@ public class String2 {
     }
 
     public static void compressString() {
-        String str = "aaabbcccddaeef";
+        String str = "aaabbccccddaeef";
         String res = "";
         int count = 1;
         res += str.charAt(0);
+
+        if (str.length() < 0) {
+            System.out.println("String is empty!");
+            return;
+        }
 
         for (int i=1; i<str.length(); i++) {
             char curr = str.charAt(i);
@@ -112,7 +116,7 @@ public class String2 {
             if (curr == prev) {
                 count++;
             } else {
-                if (count > 1 || count == 1) {
+                if (count > 1) {
                     res += count;
                     count = 1;
                 }
@@ -120,7 +124,7 @@ public class String2 {
             }
         }
 
-        if (count > 1 || count == 1) {
+        if (count > 1) {
             res += count;
         }
 
@@ -146,6 +150,5 @@ public class String2 {
         System.out.println("Compress String");
         compressString();
         System.out.println("####################################");
-
     }
 }
