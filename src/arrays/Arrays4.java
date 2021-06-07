@@ -60,20 +60,16 @@ public class Arrays4 {
         int n = a.length;
         int m = b.length;
 
-        // array to store sum.
+        // array to store sum
         int[] sum = new int[n];
 
         int i = n - 1, j = m - 1, k = n - 1;
 
         int carry = 0, s = 0;
 
-        // Until we reach beginning of array.
-        // we are comparing only for second
-        // array because we have already compare
-        // the size of array in wrapper function.
         while (j >= 0) {
-            // find sum of corresponding element
-            // of both array.
+            // find sum of corresponding element of both array
+            // and store the carry in a variable
             s = a[i] + b[j] + carry;
             sum[k] = (s % 10);
 
@@ -84,8 +80,8 @@ public class Arrays4 {
             j--;
         }
 
-        // If second array size is less
-        // the first array size.
+        // if second array size is less the first array size
+        // then add the carry to the remaining digits in 1st array
         if (a.length > b.length) {
             while (i >= 0) {
                 // Add carry to first array elements.
@@ -100,12 +96,12 @@ public class Arrays4 {
 
         int ans = 0;
 
-        // If there is carry on adding 0 index
-        // elements  append 1 to total sum.
+        // if carry is present on the 0th index
+        // then append 1 to that number
         if (carry == 1)
             ans = 10;
 
-        // Converting array into number.
+        // convert the array into a number
         for (i = 0; i <= n - 1; i++) {
             ans += sum[i];
             ans *= 10;
