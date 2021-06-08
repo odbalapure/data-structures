@@ -20,7 +20,7 @@ import java.security.PublicKey;
 public class Recursion1 {
 
     /*
-    * We are using recursion here because we know when to stop
+    * We are using recursion here because we know the base case OR know when to stop
     * and most importantly we know the smallest possible answer
     * for eg: factorial where 0! = 1
     * */
@@ -72,6 +72,17 @@ public class Recursion1 {
         System.out.print(n + " ");
     }
 
+    public static int fibonacci(int n) {
+        if (n == 1 || n == 2) {
+            return 1;
+        }
+
+        int fib_n_1 = fibonacci(n - 1);
+        int fib_n_2 = fibonacci(n - 2);
+
+        return fib_n_1 + fib_n_2;
+    }
+
     public static void main(String[] args) {
         System.out.println("####################################");
         System.out.println("Factorial: " + fact(5));
@@ -85,5 +96,8 @@ public class Recursion1 {
         System.out.println("Print N natural numbers");
         printNumbers(10);
         System.out.println("\n####################################");
+        System.out.println("Fibonacci Series");
+        System.out.println(fibonacci(10));
+        System.out.println("####################################");
     }
 }
