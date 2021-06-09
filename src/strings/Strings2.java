@@ -3,7 +3,7 @@ package strings;
 import java.util.Arrays;
 import java.util.Stack;
 
-public class String2 {
+public class Strings2 {
 
     public static void checkPermutation() {
         String str1 = "sinrtg";
