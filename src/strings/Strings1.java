@@ -1,7 +1,5 @@
 package strings;
 
-import java.util.Arrays;
-
 public class Strings1 {
 
     public static void reverse() {

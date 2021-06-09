@@ -94,6 +94,7 @@ public class Recursion2 {
             return -1;
         }
 
+        // this is out EXIT condition
         if (arr[0] == x) {
             return 0;
         }
@@ -104,15 +105,15 @@ public class Recursion2 {
         }
 
         int fi = firstIndexOfElement(small, x);
-        if (fi != -1) {
-            return fi + 1;
-        } else {
+        if (fi == -1) {
             return -1;
+        } else {
+            return fi + 1;
         }
     }
 
     /*Find first index of element - optimized*/
-    public static int findIndexOfElementOptimized(int arr[], int x, int si) {
+    public static int firstIndexOfElementOptimized(int arr[], int x, int si) {
         if (si == arr.length) {
             return -1;
         }
@@ -121,17 +122,24 @@ public class Recursion2 {
             return si;
         }
 
-        int k = findIndexOfElementOptimized(arr, x, si + 1);
+        int k = firstIndexOfElementOptimized(arr, x, si + 1);
         return  k;
     }
 
     /*Find last index of an element in an array*/
     public static int lastIndexOfElement(int arr[], int x) {
+        // our main EXIT condition
         if (arr.length == 0) {
             return -1;
         }
 
         // we will check from the last not form the beginning
+        // hence not checking this condition
+        /*
+        * if (arr[0] == x) {
+        *   return 0;
+        * }
+        * */
         int small[] = new int[arr.length - 1];
         for (int i=1; i<arr.length; i++) {
             small[i - 1] = arr[i];
@@ -141,6 +149,7 @@ public class Recursion2 {
         if (k != -1) {
             return k + 1;
         } else {
+            // x not found so we check at the very beginning
             if (arr[0] == x) {
                 return 0;
             } else {
@@ -150,6 +159,7 @@ public class Recursion2 {
     }
 
     public static int lastIndexOfElementOptimized(int arr[], int x, int si) {
+        // our main EXIT condition
         if (si == arr.length - 1) {
             return -1;
         }
@@ -179,7 +189,7 @@ public class Recursion2 {
         System.out.println("####################################");
         int arr1[] = {3,7,5,9,7,6,5};
         System.out.println("First first index of an element: " + firstIndexOfElement(arr1, 5));
-        System.out.println("First first index of an element - optimized: " + findIndexOfElementOptimized(arr1, 5, 0));
+        System.out.println("First first index of an element - optimized: " + firstIndexOfElementOptimized(arr1, 5, 0));
         System.out.println("####################################");
         System.out.println("Find last index of an element: " + lastIndexOfElement(arr1, 5));
         System.out.println("Find last index of an element - optimized: " + lastIndexOfElementOptimized(arr1, 5, 0));
