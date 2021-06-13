@@ -81,6 +81,36 @@ public class Recursion1 {
         return fib_n_1 + fib_n_2;
     }
 
+    private static int zeroCount;
+    public static int countZerosRec(int input) {
+        // main EXIT condition
+        if(input == 0) {
+            return 1;
+        }
+
+        if(input < 10) {
+            return 0;
+        } else if(input % 10 == 0) {
+            return 1 + countZerosRec(input / 10);
+        }
+
+        return countZerosRec(input / 10);
+    }
+
+    public static int multiply(int a, int b) {
+        if (a == 0 || b == 0) {
+            return 0;
+        }
+
+        // main EXIT condition
+        if (0 == b) {
+            return 0;
+        }
+
+        int sum = a + multiply(a, b - 1);
+        return sum;
+    }
+
     public static void main(String[] args) {
         System.out.println("####################################");
         System.out.println("Factorial: " + fact(5));
@@ -96,6 +126,11 @@ public class Recursion1 {
         System.out.println("\n####################################");
         System.out.println("Fibonacci Series");
         System.out.println(fibonacci(10));
+        System.out.println("####################################");
+        int n = 10020;
+        System.out.println("No. of zeros in a number: " + countZerosRec(n));
+        System.out.println("####################################");
+        System.out.println("Multiply numbers using recursion: " + multiply(11, 9));
         System.out.println("####################################");
     }
 }
