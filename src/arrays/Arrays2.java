@@ -1,6 +1,8 @@
 package arrays;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class Arrays2 {
 
@@ -112,6 +114,20 @@ public class Arrays2 {
         System.out.println(Arrays.toString(arr));
     }
 
+    public static void removeConsecutiveDuplicates() {
+        int arr[] = {10,10,20,2020,30,40,10};
+        List<Integer> result = new ArrayList<>();
+        result.add(arr[0]);
+
+        for (int i=1; i<arr.length; i++) {
+            if (arr[i] != arr[i - 1]) {
+                result.add(arr[i]);
+            }
+        }
+
+        System.out.println(result);
+    }
+
     public static void main(String[] args) {
         System.out.println("####################################");
         System.out.println("Intersection of two arrays");
@@ -128,6 +144,8 @@ public class Arrays2 {
         System.out.println("####################################");
         System.out.println("Sorted 0s and 1s array");
         sortZeroOne();
+        System.out.println("####################################");
+        removeConsecutiveDuplicates();
         System.out.println("####################################");
     }
 }
