@@ -1,0 +1,25 @@
+/*Node<Integer> head1 = new Node<>(1);
+        head1.next = new Node<>(2);
+        head1.next.next = new Node<>(10);
+        head1.next.next.next = new Node<>(19);
+        head1.next.next.next.next = new Node<>(100);
+        head1.next.next.next.next.next = new Node<>(199);
+
+        Node<Integer> head2 = new Node<>(5);
+        head2.next = new Node<>(32);
+        head2.next.next = new Node<>(50);*/
+
+
+
+        /*Sort a linked list using merge sort*/
+            public static Node<Integer> mergeSort(Node<Integer> head, Node<Integer> tail) {
+                if (head == tail) {
+                    return head;
+                }
+
+                Node<Integer> mid = mid(head, tail);
+                Node<Integer> fh = mergeSort(head, mid);
+                Node<Integer> sh = mergeSort(mid.next, tail);
+                Node<Integer> sortedList = mergerSortedLinkedList(fh, sh);
+                return sortedList;
+            }

@@ -187,18 +187,21 @@ public class LinkedList2 {
                 skip--;
             }
 
-            System.out.println("Head value: " + head.data);
-
             // change pointers
+            // 4 5 6 separated
             prev.next = null;
+            // 4 is the head
             Node<Integer> tempHead = head;
+            // make 1 as head
             head = curr;
 
             // now connect the lists
+            // move till 3
             while (curr.next != null) {
                 curr = curr.next;
             }
 
+            // now connect 3's next to 4
             curr.next = tempHead;
             LinkedList1.print(head);
         }
