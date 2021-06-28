@@ -114,7 +114,7 @@ public class Arrays4 {
     // space complexity: O ( 1 )
     public static void rotateArrayRight() {
         int arr[] = { 1, 2, 3, 8, 9, 10 };
-        int k = 3;
+        int k = 1;
         int j = 0;
 
         while (k > 0) {
