@@ -105,7 +105,7 @@ public class Strings2 {
         res += str.charAt(0);
 
         if (str.length() < 0) {
-            System.out.println("String is empty!");
+            System.out.println("Strin g is empty!");
             return;
         }
 
