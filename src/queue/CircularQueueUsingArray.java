@@ -1,18 +1,18 @@
 package queue;
 
-public class QueueUsingArray {
+public class CircularQueueUsingArray {
 
     private int[] data;
     private int front;
     private int rear;
     private int size;
 
-    public QueueUsingArray() {
+    public CircularQueueUsingArray() {
         data = new int[5];
         front = rear = -1;
     }
 
-    public QueueUsingArray(int size) {
+    public CircularQueueUsingArray(int size) {
         data = new int[size];
         front = rear = -1;
     }
@@ -34,14 +34,22 @@ public class QueueUsingArray {
         }
 
         // queue is empty, FRONT is -1
-        // set FRONT to 0 after an enqueue opeartion
-        if (size == 0 || front == -1) {
+        // set FRONT to 0 after an enqueue operation
+        if (size == 0) {
             front = 0;
         }
 
-        // elements are inserted at REAR end
+        // elements are inserted at the REAR end
         // increment REAR by 1 after an enqueue operation
         rear++;
+
+        // ** if we reach the end, set REAR to 0
+        if (rear == data.length) {
+            rear = 0;
+        }
+
+        // rear = (rear + 1) % data.length;
+
         data[rear] = ele;
         size++;
     }
@@ -50,15 +58,25 @@ public class QueueUsingArray {
     public int dequeue() {
         if (size == 0) {
             System.out.println("Queue is empty, cannot deque...");
-            front = -1;
-            rear = -1;
-
             return Integer.MIN_VALUE;
         }
 
         int temp = data[front];
+
         front++;
+        if (front == data.length) {
+            front = 0;
+        }
+
         size--;
+        if (front == data.length) {
+            front = 0;
+        }
+
+        if (size == 0) {
+            front = -1;
+            rear = -1;
+        }
 
         return temp;
     }
@@ -73,8 +91,10 @@ public class QueueUsingArray {
         return data[front];
     }
 
+
+
     public static void main(String[] args) {
-        QueueUsingArray queue = new QueueUsingArray(5);
+        CircularQueueUsingArray queue = new CircularQueueUsingArray(5);
         queue.enqueue(1);
         queue.enqueue(2);
         queue.enqueue(3);

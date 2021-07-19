@@ -23,3 +23,66 @@ public static Node<Integer> mergeSort(Node<Integer> head, Node<Integer> tail) {
     Node<Integer> sortedList = mergerSortedLinkedList(fh, sh);
     return sortedList;
 }
+
+// minimum square recursive code w/o DP
+public static int minimumSquare(int n) {
+   int minAns = Integer.MAX_VALUE;
+
+   if (n == 0) {
+       return 0;
+   }
+
+   for (int i=1; i*i<=n; i++) {
+       int currAns = minimumSquare(n-(i*i));
+
+       if (minAns > currAns) {
+           minAns = currAns;
+       }
+
+   int ans = 1 + minAns;
+   return ans;
+}
+
+
+----------
+GRAPHS
+----------
+Complete graph means all the edges are interconnected or a path must be present b/w two nodes
+whether it is direct or indirect
+
+To construct a graph we have 3 ways to do so:
+Arrays to store nodes and edges
+Array to store nodes connected directly
+2D Array for adjacency matrix. For eg:
+    a b c d
+  __________
+a | 1 0 1 0
+b | 1 0 0 0
+c | 1 0 1 1
+
+Complexity analysis:->
+1. are v1 and v2 are connected
+2. all vertices to a vertex v
+
+Arrays to store nodes and edges:
+Query 1 will have O(E) -> O(n^2) complexity
+Query 2 will have O(E) -> O(n^2) complexity
+Space -> O ( n + E )
+
+Array to store nodes connected directly:
+Query 1 will have O(n-1)
+Query 2 will have O(n-1)
+Space -> O ( v + 2 * E )
+
+2D Array for adjacency matrix:
+Query 1 will have O(1)
+Query 2 will have O(n)
+Space -> O (n^2)
+NOTE: Not practical in case of skewed matrix
+
+
+
+
+
+
+
