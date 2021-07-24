@@ -39,6 +39,7 @@ public static int minimumSquare(int n) {
            minAns = currAns;
        }
 
+
    int ans = 1 + minAns;
    return ans;
 }
